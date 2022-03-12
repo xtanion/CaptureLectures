@@ -1,5 +1,7 @@
+from crypt import methods
 import os
-from flask import Flask, render_template, request, redirect, url_for
+import json
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 import cv2
 from PIL import Image
 from skimage.metrics import structural_similarity
@@ -19,9 +21,7 @@ def upload_video():
             file.save(os.path.join(
                 'web/uploads', filename))
 
-            with app.app_context(), app.test_request_context():
-                threading.Thread(target=getImages).start()
-            # getImages()
+            threading.Thread(target=get_images).start()
 
             return render_template('output.html')
 
@@ -29,13 +29,29 @@ def upload_video():
 
 # Using Scikit-Learn to get Image data
 
-def getImages():
+
+@app.route('/update_list', methods=['POST'])
+def update_list():
+    path = os.path.join(os.path.dirname('web/frame'), 'frame')
+    list_dir = os.listdir(path)
+    # print(list_dir)
+    return jsonify(render_template('list_items.html', x=list_dir))
+
+
+def get_images():
     print('Running on thread')
     try:
         path = os.path.join('web/uploads', 'demo0.mp4')
         print("Path found")
     except:
         print('ERROR occured')
+    
+    image_dir = os.listdir('web/frame')
+    if(len(image_dir)>0):
+        for items in image_dir:
+            r = os.path.join('web/frame', items)
+            os.remove(r)
+
     capture = cv2.VideoCapture(path)
     i = 0
     print("captured")
@@ -59,7 +75,9 @@ def getImages():
             i += 1
 
     capture.release()
-    return render_template('output.html')
+    # with app.app_context(), app.test_request_context():
+    #     print("Got App Context")
+    #     return "go Away emo kid!!"
 
 def purge_duplicate(img0, img1, threshold, i=0):
     sim, diff = structural_similarity(img0, img1, full=True)

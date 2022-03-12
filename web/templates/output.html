@@ -39,15 +39,8 @@
 
                 <!-- Introduction -->
                 <section id="intro" class="main">
-                    <h1>Select the images you think are most relevant for you.</h1>
-
-
+                    
                 </section>
-
-                <!-- <video width="320" height="240" controls>
-                    <source src="/web/uploads/demo0.mp4" type="video/mp4">
-                    Sorry, your browser doesn't support embedded videos.
-                </video> -->
 
 
                 <!-- Get PDF/FOLDER -->
@@ -76,6 +69,31 @@
             <script src="assets/js/breakpoints.min.js"></script>
             <script src="assets/js/util.js"></script>
             <script src="assets/js/main.js"></script>
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+            <script>
+                $(function(){
+                    window.setInterval(function(){
+                      loadNewImage()  
+                    }, 1000)
+                })
+
+                function loadNewImage() {
+                    $.ajax({
+                        url: "update_list",
+                        type: "POST",
+                        dataType: "json",
+                        success: function (data) {
+                            $(list_images).replaceWith(data)
+                            console.log(data)
+                        }
+                    });
+                }
+            </script>
+            <div id="list_images">
+                <li>
+                    {{x}}
+                </li>
+            </div>
 
     </body>
 

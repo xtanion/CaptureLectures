@@ -258,7 +258,7 @@ input, select, textarea {
 	}
 
 	code {
-		border-radius: 8px;
+		border-radius: 15px;
 		border: solid 1px;
 		font-family: "Courier New", monospace;
 		font-size: 0.9em;
@@ -1802,7 +1802,7 @@ input, select, textarea {
 /* Box */
 
 	.box {
-		border-radius: 8px;
+		border-radius: 15px;
 		border: solid;
 		margin-bottom: 2em;
 		padding: 1.5em;
@@ -1839,7 +1839,7 @@ input, select, textarea {
 		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		border-radius: 8px;
+		border-radius: 15px;
 		border: 0;
 		cursor: pointer;
 		display: inline-block;
