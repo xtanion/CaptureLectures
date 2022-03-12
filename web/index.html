@@ -1,15 +1,11 @@
 <!DOCTYPE HTML>
-<!--
-	Stellar by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html:en>
 
     <head>
-        <title>Output</title>
+        <title> CaptureLectures</title>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
         <link rel="stylesheet" href="assets/css/main.css" />
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     </head>
@@ -20,57 +16,45 @@
         <div id="wrapper">
 
             <!-- Header -->
-            <header id="header" class="alt">
-                <span class="logo"><img src="images/logo.svg" width="96" alt="" /></span>
-                <h1>Here is the video into slides</h1>
-                <p>Select images you want to remove and we will return the desired images.</p>
+            <header id="header">
+                <h1>CaptureLectures</h1>
+                <p>A simple web-app to convert a video into pdf of its slides.</p>
+                <h6>
+                    <p> <strong>WARNING  - </strong> The folder may have more than 1 similar images sometimes as the product is still in developement.</p>
+                </h6>
             </header>
-
-            <nav id="nav">
-                <ul>
-                    <li><a href="#intro" class="active">All images</a></li>
-                    <li><a href="#cta">Get pdf/folder</a></li>
-                </ul>
-            </nav>
 
             <!-- Main -->
             <div id="main">
 
-                <!-- Introduction -->
-                <section id="intro" class="main">
-                    <h1>Select the images you think are most relevant for you.</h1>
+                <!-- Content -->
+                <section id="content" class="main">
+
+                    <!-- Text -->
+                    <section>
+                        <p>Select a video and wait till the website processes your video into a series of relevant slides. </p>
+
+                        <div class="row">
+                            <div class="col-6 col-12-medium">
+                                <ul class="actions">
+                                    <form action="/output">
+                                        <input type="file" id="myFile" name="filename">
+                                        <input type="submit">
+                                    </form>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
 
 
-                </section>
-
-
-
-                <!-- Get PDF/FOLDER -->
-                <section id="cta" class="main special">
-                    <header class="major">
-                        <h2>Return images that are selected</h2>
-                        <p>The images which you have selected will be returned back to you</p>
-                    </header>
-                    <footer class="major">
-                        <ul class="actions special">
-                            <li><a href="generic.html" class="button primary">Get images in folder</a></li>
-                            <li><a href="generic.html" class="button">Get a pdf</a></li>
-                        </ul>
-                    </footer>
-                </section>
-
-            </div>
-
-
-
-            <!-- Scripts -->
-            <script src="assets/js/jquery.min.js"></script>
-            <script src="assets/js/jquery.scrollex.min.js"></script>
-            <script src="assets/js/jquery.scrolly.min.js"></script>
-            <script src="assets/js/browser.min.js"></script>
-            <script src="assets/js/breakpoints.min.js"></script>
-            <script src="assets/js/util.js"></script>
-            <script src="assets/js/main.js"></script>
+                    <!-- Scripts -->
+                    <script src="assets/js/jquery.min.js"></script>
+                    <script src="assets/js/jquery.scrollex.min.js"></script>
+                    <script src="assets/js/jquery.scrolly.min.js"></script>
+                    <script src="assets/js/browser.min.js"></script>
+                    <script src="assets/js/breakpoints.min.js"></script>
+                    <script src="assets/js/util.js"></script>
+                    <script src="assets/js/main.js"></script>
 
     </body>
 
