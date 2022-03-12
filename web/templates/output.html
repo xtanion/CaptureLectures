@@ -26,24 +26,8 @@
                 <h1><img src="static/images/logo.svg" width="42">Here is the video into slides</h1>
                 <p>Select images you want to remove and we will return the desired images.</p>
             </header>
-
-            <nav id="nav">
-                <ul>
-                    <li><a href="#intro" class="active">All images</a></li>
-                    <li><a href="#cta">Get pdf/folder</a></li>
-                </ul>
-            </nav>
-
             <!-- Main -->
             <div id="main">
-
-                <!-- Introduction -->
-                <section id="intro" class="main">
-                    
-                </section>
-
-
-
                 <!-- Get PDF/FOLDER -->
                 <section id="cta" class="main special">
                     <header class="major">
@@ -52,8 +36,8 @@
                     </header>
                     <footer class="major">
                         <ul class="actions special">
-                            <li><a href="generic.html" class="button primary">Get images in folder</a></li>
-                            <li><a href="generic.html" class="button">Get a pdf</a></li>
+                            <li><a href="C:\Users\Aryan HP\CaptureLectures\web\frame" class="button primary">Get images in folder</a></li>
+                            <li><a href="file:///web\pdf-file\Images.pdf" class="button">Get a pdf</a></li>
                         </ul>
                     </footer>
                 </section>
@@ -72,9 +56,9 @@
             <script src="assets/js/main.js"></script>
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
             <script>
-                $(function(){
-                    window.setInterval(function(){
-                      loadNewImage()  
+                $(function() {
+                    window.setInterval(function() {
+                        loadNewImage()
                     }, 1000)
                 })
 
@@ -83,7 +67,7 @@
                         url: "update_list",
                         type: "POST",
                         dataType: "json",
-                        success: function (data) {
+                        success: function(data) {
                             $(list_images).replaceWith(data)
                             console.log(data)
                         }

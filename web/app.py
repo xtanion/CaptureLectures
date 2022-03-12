@@ -1,6 +1,7 @@
-from crypt import methods
+#from crypt import methods
 import os
 import json
+from fpdf import FPDF
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 import cv2
 from PIL import Image
@@ -22,7 +23,7 @@ def upload_video():
                 'web/uploads', filename))
 
             threading.Thread(target=get_images).start()
-
+            make_pdf()
             return render_template('output.html')
 
     return render_template('index.html')
@@ -37,6 +38,21 @@ def update_list():
     # print(list_dir)
     return jsonify(render_template('list_items.html', x=list_dir))
 
+
+def make_pdf():
+
+    pdf = FPDF()
+    pdf.set_auto_page_break(0)
+    image_list=os.listdir('web/frame') 
+    print(image_list)
+    # add new pages with the image 
+    for img in image_list:
+        img = os.path.join('web/frame', img)
+        pdf.add_page()
+        pdf.image(img)
+    # save the output file   
+    pdf.output("web/pdf-file/Images.pdf")
+    print("Adding all your images into a pdf file")
 
 def get_images():
     print('Running on thread')
@@ -73,7 +89,7 @@ def get_images():
             print(path)
             cv2.imwrite(path, img0)
             i += 1
-
+    make_pdf()
     capture.release()
     # with app.app_context(), app.test_request_context():
     #     print("Got App Context")
