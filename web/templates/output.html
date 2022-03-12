@@ -11,7 +11,9 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
-        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <noscript>
+            <link rel="stylesheet" href="static/css/noscript.css" />
+        </noscript>
     </head>
 
     <body class="is-preload">
@@ -20,9 +22,8 @@
         <div id="wrapper">
 
             <!-- Header -->
-            <header id="header" class="alt">
-                <span class="logo"><img src="images/logo.svg" width="96" alt="" /></span>
-                <h1>Here is the video into slides</h1>
+            <header id="header">
+                <h1><img src="static/images/logo.svg" width="42">Here is the video into slides</h1>
                 <p>Select images you want to remove and we will return the desired images.</p>
             </header>
 
