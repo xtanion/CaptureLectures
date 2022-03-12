@@ -1,6 +1,5 @@
 import cv2
 from PIL import Image
-import imagehash
 from skimage.metrics import structural_similarity
 import numpy as np
 
@@ -38,4 +37,4 @@ while(capture.isOpened()):
         i+=1
 
 capture.release()
-cv2.destroyAllWindows()
+# cv2.destroyAllWindows()
