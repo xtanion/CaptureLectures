@@ -1,4 +1,3 @@
-#from crypt import methods
 import os
 import json
 from fpdf import FPDF
@@ -7,6 +6,7 @@ import cv2
 from PIL import Image
 from skimage.metrics import structural_similarity
 import  threading
+
 
 ALLOWED_TYPE = {'mp4', 'mkv', 'webm', 'mov'}
 app = Flask(__name__)
@@ -39,6 +39,9 @@ def update_list():
     return jsonify(render_template('list_items.html', x=list_dir))
 
 
+
+
+
 def make_pdf():
 
     pdf = FPDF()
@@ -54,7 +57,12 @@ def make_pdf():
     pdf.output("web/pdf-file/Images.pdf")
     print("Adding all your images into a pdf file")
 
+
+
+
+
 def get_images():
+
     print('Running on thread')
     try:
         path = os.path.join('web/uploads', 'demo0.mp4')
@@ -84,7 +92,7 @@ def get_images():
 
         img1_bw = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-        if (purge_duplicate(img0_bw, img1_bw, 0.65, i) == True):
+        if (purge_duplicate(img0_bw, img1_bw, 0.70, i) == True):
             path = 'web/frame/'+str(i)+'.jpg'
             print(path)
             cv2.imwrite(path, img0)
@@ -95,12 +103,16 @@ def get_images():
     #     print("Got App Context")
     #     return "go Away emo kid!!"
 
+
+
 def purge_duplicate(img0, img1, threshold, i=0):
     sim, diff = structural_similarity(img0, img1, full=True)
     if(sim < threshold):
         return True
     else:
         return False
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
